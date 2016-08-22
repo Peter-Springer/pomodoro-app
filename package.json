@@ -1,0 +1,37 @@
+{
+  "name": "pomodoro-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack",
+    "test": "mocha",
+    "feature": "wdio wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peter-Springer/pomodoro-app.git"
+  },
+  "author": "Pete Springer and Kirsten Swanson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Peter-Springer/pomodoro-app/issues"
+  },
+  "homepage": "https://github.com/Peter-Springer/pomodoro-app#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "css-loader": "^0.23.1",
+    "mocha": "^3.0.2",
+    "mocha-loader": "^0.7.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "wdio-dot-reporter": "0.0.6",
+    "wdio-mocha-framework": "^0.4.0",
+    "wdio-selenium-standalone-service": "0.0.5",
+    "webdriverio": "^4.2.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  }
+}
