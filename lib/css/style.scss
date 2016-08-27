@@ -65,12 +65,12 @@ header {
   font-size: 5em;
 }
 
-.session-length {
-  display: inline-block;
-  margin-left: 38%;
+#change-interval-times {
+  display: flex;
+  justify-content: center;
 }
 
-.break-length {
+.session-length, .break-length {
   display: inline-block;
 }
 
