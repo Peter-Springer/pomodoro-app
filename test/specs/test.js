@@ -18,7 +18,7 @@ describe('start button', function() {
     browser.url('/');
     var timer = browser.element('.timer');
     browser.click('#start-button');
-    assert.equal(timer.getText(), 10);
+    assert.equal(timer.getText(), '25:00');
   });
  });
 
