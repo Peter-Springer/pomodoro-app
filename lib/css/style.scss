@@ -1,22 +1,105 @@
-.timer {
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
-  border-radius: 50%;
+body {
+  background: url('/img/palm-tree.png') no-repeat;
+  background-size: cover;
 }
 
-.pause {
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
-  border-radius: 50%;
+header {
+  font-size: 4em;
+  height: 2em;
+  margin-top: 1em;
+  text-align: center;
 }
-.session-length, .break-length {
+
+.timer-buttons {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+#start-button {
+  background-color: #608ae7;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 2em;
   margin-right: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  width: 4em;
+  &:hover {
+    background-color: #08a726;
+  }
+}
+
+#pause-button {
+  background-color: #608ae7;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 2em;
+  padding: 0.5em 1em 0.5em 0.8em;
+  text-align: center;
+  width: 4em;
+  &:hover {
+    background-color: #08a726;
+  }
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #73cae6;
+  border-radius: 50%;
+  height: 25em;
+  opacity: 0.5;
+  width: 25em;
+}
+
+.time-display {
+  font-size: 5em;
+}
+
+.session-length {
+  display: inline-block;
+  margin-left: 38%;
+}
+
+.break-length {
   display: inline-block;
 }
 
 .change-time-buttons {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+}
+
+.decrease-session-time, .increase-session-time, .decrease-break-time, .increase-break-time {
+  background-color: #608ae7;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 1em;
+  font-weight: 900;
+  margin-right: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  &:hover {
+    background-color: #08a726;
+  }
+}
+
+.session-duration, .break-duration {
+  font-size: 3em;
+  margin-right: 0.3em;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0.5em;
 }
