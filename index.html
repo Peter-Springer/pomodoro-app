@@ -5,25 +5,31 @@
     <title>pomodoro-app</title>
   </head>
   <body>
-    <h1>Pomodoro</h1>
+    <header>
+      <h1>Palmodoro</h1>
+    </header>
     <section>
-      <button id="start-button" name="start-button">Start</button>
-      <button id="pause-button" name="pause-button">Pause</button>
-      <article class="timer"></article>
+      <section class="timer-buttons">
+        <button id="start-button" name="start-button">Start</button>
+        <button id="pause-button" name="pause-button">Pause</button>
+      </section>
+      <section class="timer-container">
+        <article class="timer"></article>
+      </section>
       <!-- <article class="pause"></article> -->
       <section class="session-length">
-        <h1>Session Length</h1>
+        <h3>Session Length</h3>
           <article class=change-time-buttons>
-            <button class="decrease-session-time" name="decrease session length">-</button>
-            <h3 class="session-duration">25</h3>
+            <button class="decrease-session-time" name="decrease session length">&mdash;</button>
+            <p class="session-duration">25</p>
             <button class="increase-session-time" name="increase session length">+</button>
           </article>
       </section>
       <section class="break-length">
-        <h1>Break Length</h1>
+        <h3>Break Length</h3>
           <article class="change-time-buttons">
-            <button class="decrease-break-time" name="decrease break length">-</button>
-            <h3 class="break-duration">5</h3>
+            <button class="decrease-break-time" name="decrease break length">&mdash;</button>
+            <p class="break-duration">5</p>
             <button class="increase-break-time" name="increase break length">+</button>
           </article>
       </section>
