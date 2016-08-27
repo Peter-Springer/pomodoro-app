@@ -1,19 +1,21 @@
+'use strict';
 const assert = require('chai').assert;
 const Timer = require('../lib/timer');
 
 describe('Timer', function() {
-  it('should have a default time of 1 second', function() {
+  it('should have a default duration time of 1500000 milliseconds 25 minutes', function() {
     var timer = new Timer();
-    assert.equal(timer.time, 1000);
+    assert.equal(timer.duration, 1500000);
   });
 
-  it('should have a start function', function() {
+  it('should have a start time of Date.now()', function() {
     var timer = new Timer();
-    assert.isFunction(timer.countdown);
+    assert.equal(timer.startTime, Date.now());
   });
-
-  it('check countdown decrements by 1', function() {
-     var timer = new Timer();
-     assert.equal(timer.countdown(10), 9);
+  it('should have an end time equal to start time plus duration', function() {
+   // must freeze time to continue testing 
+    var timer = new Timer();
+    timer.timerEndTime();
+    assert.equal(timer.endTime, 0);
   });
 });
