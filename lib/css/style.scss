@@ -73,11 +73,8 @@ header {
   z-index: 1;
 }
 
-.time-display {
-  font-size: 5em;
-}
-
-.time-up-display {
+.time-display, .time-up-display {
+  font-family: 'Roboto', sans-serif;
   font-size: 4em;
 }
 
