@@ -56,17 +56,16 @@ header {
   align-items: center;
   justify-content: center;
   height: 50vh;
-  position: relative;
 }
 
-.timer, .timer-overlay {
+.timer {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #73bae7;
   border-radius: 50%;
   height: 300px;
-  position: absolute;
+  opacity: 0.65;
   width: 300px;
 }
 
@@ -74,13 +73,12 @@ header {
   z-index: 1;
 }
 
-.timer-overlay {
-  z-index: 0;
-  opacity: rgba(115, 186, 231, 0.5);
-}
-
 .time-display {
   font-size: 5em;
+}
+
+.time-up-display {
+  font-size: 4em;
 }
 
 #change-interval-times {
