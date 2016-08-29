@@ -1,0 +1,61 @@
+@mixin mobile-functionality-buttons {
+  background-color: $button-color;
+  border: none;
+  border-radius: 0.2em;
+  color: $primary-font-color;
+  font-family: $primary-font;
+  font-size: 2em;
+  outline: none;
+  padding: 0.2em 0 0.2em 0;
+  text-align: center;
+  width: 3.5em;
+}
+
+@mixin mobile-increase-decrease-buttons {
+  border: none;
+  border-radius: 0.2em;
+  color: $primary-font-color;
+  font-size: 0.7em;
+  font-weight: 900;
+  margin-right: 1em;
+  outline: none;
+  padding: 1em;
+  text-align: center;
+}
+
+@mixin desktop-functionality-buttons {
+  background-color: $button-color;
+  border: none;
+  border-radius: 0.2em;
+  color: $primary-font-color;
+  font-family: $primary-font;
+  font-size: 2em;
+  outline: none;
+  padding:  0.2em 0.5em;
+  text-align: center;
+  width: 4em;
+}
+
+@mixin desktop-increase-decrease-buttons {
+  background-color: $button-color;
+  border: none;
+  border-radius: 0.2em;
+  color: $primary-font-color;
+  font-size: 1em;
+  font-weight: 900;
+  margin-right: 1em;
+  outline: none;
+  padding: 0.5em;
+  text-align: center;
+}
+
+@mixin button-hover {
+  background-color: lighten($button-color, 25%);
+  box-shadow: 10px 10px 5px #888888;
+}
+
+@mixin center-with-flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
