@@ -20,7 +20,7 @@ describe('Timer', function() {
      assert.equal(timer.startTime, Date.now());
    });
 
-  it('should have a default duration time of 1500000 milliseconds 25 minutes', function() {
+  it('should have a default duration time of 1500000 milliseconds/25 minutes', function() {
     var timer = new Timer();
     assert.equal(timer.duration, 1500000);
   });
@@ -31,9 +31,20 @@ describe('Timer', function() {
     assert.equal(timer.endTime, this.rightNow + timer.duration);
   });
 
-  it('should have a remaining time equal to end time minus current time', function() {
+  it('should have a remaining time equal to end time minus date.now', function() {
     var timer = new Timer();
     timer.timerRemainingTime();
     assert.equal(timer.remainingTime, timer.endTime - this.rightNow);
   });
+
+  it('should have a default remaining time of 30000/30 seconds', function() {
+    var timer = new Timer();
+    assert.equal(timer.remainingTime, 30000);
+  });
+
+  it('should be able to take in a default time', function() {
+    var timer = new Timer(5);
+    assert.equal(timer.duration, 300000);
+  });
+
 });
