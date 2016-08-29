@@ -1,10 +1,13 @@
+@import 'variables';
+@import 'mixins';
+
 body {
   background: url('/img/large-palm-tree.png') no-repeat center center fixed;
   background-size: cover;
 }
 
 header {
-  color: #050216;
+  color: $primary-font-color;
   font-family: 'Fontdiner Swanky', cursive;
   font-size: 3.5em;
   height: 2em;
@@ -19,62 +22,35 @@ header {
 }
 
 #start-button {
-  background-color: #3e71e0;
-  border: none;
-  border-radius: 0.2em;
-  font-family: 'Roboto', sans-serif;
-  font-size: 2em;
+  @include desktop-functionality-buttons;
   margin-right: 1em;
-  outline: none;
-  padding:  0.2em 0.5em;
-  text-align: center;
-  width: 4em;
   &:hover {
-    background-color: #86a3db;
-    box-shadow: 10px 10px 5px #888888;
+    @include button-hover;
   }
 }
 
 #reset-button {
-  background-color: #3e71e0;
-  border: none;
-  border-radius: 0.2em;
-  font-family: 'Roboto', sans-serif;
-  font-size: 2em;
-  outline: none;
-  padding:  0.2em 0.5em;
-  text-align: center;
-  width: 4em;
+  @include desktop-functionality-buttons;
   &:hover {
-    background-color: #86a3db;
-    box-shadow: 10px 10px 5px #888888;
+    @include button-hover;
   }
 }
 
 .timer-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include center-with-flexbox;
   height: 50vh;
 }
 
 .timer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #73bae7;
+  @include center-with-flexbox;
+  background-color: #7496de;
   border-radius: 50%;
-  height: 300px;
+  height: 18em;
   opacity: 0.65;
-  width: 300px;
-}
-
-.timer {
-  z-index: 1;
+  width: 18em;
 }
 
 .time-display, .time-up-display {
-  font-family: 'Roboto', sans-serif;
   font-size: 4em;
 }
 
@@ -90,39 +66,66 @@ header {
 .change-time-buttons {
   display: flex;
   justify-content: center;
+  margin-left: 0.5em;
 }
 
 .decrease-session-time, .increase-session-time, .decrease-break-time, .increase-break-time {
-  background-color: #3e71e0;
-  border: none;
-  border-radius: 0.2em;
-  font-size: 1em;
-  font-weight: 900;
-  margin-right: 1em;
-  outline: none;
-  padding: 0.5em;
-  text-align: center;
+  @include desktop-increase-decrease-buttons;
   &:hover {
-    background-color: #86a3db;
-    box-shadow: 10px 10px 5px #888888;
+    @include button-hover;
   }
 }
 
+.increase-session-time, .increase-break-time {
+  padding: 0 0.6em 0 0.6em;
+}
+
 .session-duration, .break-duration {
+  color: $primary-font-color;
   font-size: 2em;
   margin-right: 0.4em;
 }
 
 h3 {
-  font-family: 'Roboto', sans-serif;
+  color: $primary-font-color;
+  font-family: $primary-font;
   font-size: 1.5em;
   font-weight: bold;
   padding: 0.5em;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 550px) {
   body {
     background: url('/img/small-palm-tree.png') no-repeat center center fixed;
     background-size: cover;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header {
+    font-size: 2em;
+    margin-top: 2em;
+  }
+  .timer {
+    height: 15em;
+    width: 15em;
+  }
+  #start-button, #reset-button {
+    @include mobile-functionality-buttons;
+  }
+  .time-up-display{
+    font-size: 3.5em;
+  }
+  .decrease-session-time, .increase-session-time, .decrease-break-time, .increase-break-time {
+    @include mobile-increase-decrease-buttons;
+  }
+  .increase-session-time, .increase-break-time {
+    padding: 0 1.15em 0 1.15em;
+  }
+  .session-length {
+    margin-right: 0.7em;
+  }
+  h3 {
+    font-size: 1.2em;
   }
 }
