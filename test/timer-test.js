@@ -4,35 +4,36 @@ const Timer = require('../lib/timer');
 
 describe('Timer', function() {
 
-    let dateNow;
-    let now = Date.now();
-
     beforeEach(function () {
-      dateNow = Date.now;
-      Date.now = function () {
-        return now;
-      };
+      this.rightNow = Date.now();
+      this.dateNow = Date.now;
+      Date.now = () => this.rightNow;
     });
 
     afterEach(function () {
-      Date.now = dateNow;
+      Date.now = this.dateNow;
     });
 
   it('should have a start time equal to date.now', function() {
      var timer = new Timer();
-     assert.equal(timer.startTime, now);
+     assert.equal(timer.startTime, this.rightNow);
+     assert.equal(timer.startTime, Date.now());
    });
 
   it('should have a default duration time of 1500000 milliseconds 25 minutes', function() {
     var timer = new Timer();
-    assert.equal(timer.duration, 1500000); 
+    assert.equal(timer.duration, 1500000);
   });
 
   it('should have an end time equal to start time plus duration', function() {
-   // must freeze time to continue testing
     var timer = new Timer();
-    // var startTime = now;
     timer.timerEndTime();
-    assert.equal(timer.endTime, 1472490649666);
+    assert.equal(timer.endTime, this.rightNow + timer.duration);
+  });
+
+  it('should have a remaining time equal to end time minus current time', function() {
+    var timer = new Timer();
+    timer.timerRemainingTime();
+    assert.equal(timer.remainingTime, timer.endTime - this.rightNow);
   });
 });
