@@ -46,5 +46,4 @@ describe('Timer', function() {
     var timer = new Timer(5);
     assert.equal(timer.duration, 300000);
   });
-
 });
