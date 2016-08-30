@@ -53,8 +53,8 @@
 	const defaultSession = new Timer();
 	const breakSession   = new Timer(5);
 	let currentStatus    = 1;
-	let waveNoise        = new Audio('/sounds/waves.wav');
-	let whaleNoise       = new Audio('/sounds/humpback-whale.wav');
+	let waveNoise        = new Audio('sounds/waves.wav');
+	let whaleNoise       = new Audio('sounds/humpback-whale.wav');
 
 	function renderTimer(time) {
 	  $('.timer').html(
