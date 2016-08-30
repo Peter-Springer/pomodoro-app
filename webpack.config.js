@@ -12,7 +12,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.scss$/, loader: 'style!css!resolve-url!sass?sourceMap' },
       {
           test: /\.png$/,
           loader: 'url-loader',
