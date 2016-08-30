@@ -74,6 +74,9 @@ header {
   &:hover {
     @include button-hover;
   }
+  &:disabled {
+    color: #85888b;
+  }
 }
 
 .increase-session-time, .increase-break-time {
