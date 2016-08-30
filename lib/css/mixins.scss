@@ -2,6 +2,7 @@
   background-color: $button-color;
   border: none;
   border-radius: 0.2em;
+  box-shadow: 0 8px 6px -6px black;
   color: $primary-font-color;
   font-family: $primary-font;
   font-size: 2em;
@@ -14,6 +15,7 @@
 @mixin mobile-increase-decrease-buttons {
   border: none;
   border-radius: 0.2em;
+  box-shadow: 0 8px 10px -4px black;
   color: $primary-font-color;
   font-size: 0.7em;
   font-weight: 900;
@@ -27,6 +29,7 @@
   background-color: $button-color;
   border: none;
   border-radius: 0.2em;
+  box-shadow: 0 8px 6px -6px black;
   color: $primary-font-color;
   font-family: $primary-font;
   font-size: 2em;
@@ -40,6 +43,7 @@
   background-color: $button-color;
   border: none;
   border-radius: 0.2em;
+  box-shadow: 0 8px 10px -4px black;
   color: $primary-font-color;
   font-size: 1em;
   font-weight: 900;
