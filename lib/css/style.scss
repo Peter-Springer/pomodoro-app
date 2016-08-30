@@ -2,8 +2,12 @@
 @import 'mixins';
 
 body {
-  background: url(/img/large-palm-tree.png) no-repeat center center fixed;
+  background: url('../img/large-palm-tree.png') no-repeat center center fixed;
   background-size: cover;
+  @media screen and (max-width: 550px) {
+    background: url('../img/small-palm-tree.png') no-repeat center center fixed;
+    background-size: cover;
+  }
 }
 
 header {
@@ -95,13 +99,6 @@ h3 {
   font-size: 1.5em;
   font-weight: bold;
   padding: 0.5em;
-}
-
-@media screen and (max-width: 550px) {
-  body {
-    background: url(/img/small-palm-tree.png) no-repeat center center fixed;
-    background-size: cover;
-  }
 }
 
 @media screen and (max-width: 400px) {
