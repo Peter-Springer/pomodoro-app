@@ -31,6 +31,9 @@ header {
   &:hover {
     @include button-hover;
   }
+  &:disabled {
+    color: #85888b;
+  }
 }
 
 #reset-button {
