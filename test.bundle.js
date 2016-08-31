@@ -63,57 +63,37 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	const $ = __webpack_require__(2);
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var $ = __webpack_require__(2);
-
-	var Timer = function () {
-	  function Timer(duration) {
-	    var startTime = arguments.length <= 1 || arguments[1] === undefined ? Date.now() : arguments[1];
-
-	    _classCallCheck(this, Timer);
-
+	class Timer {
+	  constructor(duration, startTime = Date.now()) {
 	    this.startTime = startTime;
 	    this.duration = duration * 60000 || 25 * 60000;
 	    this.endTime = 0;
 	    this.remainingTime = 30000;
 	  }
 
-	  _createClass(Timer, [{
-	    key: 'timerEndTime',
-	    value: function timerEndTime() {
-	      this.endTime = this.startTime + this.duration;
-	      return this.endTime;
-	    }
-	  }, {
-	    key: 'timerRemainingTime',
-	    value: function timerRemainingTime() {
-	      this.remainingTime = this.endTime - Date.now();
-	      return this.remainingTime;
-	    }
-	  }, {
-	    key: 'playSoundIfNearInterval',
-	    value: function playSoundIfNearInterval(currentTime, sound) {
-	      for (var _len = arguments.length, intervals = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	        intervals[_key - 2] = arguments[_key];
+	  timerEndTime() {
+	    this.endTime = this.startTime + this.duration;
+	    return this.endTime;
+	  }
+
+	  timerRemainingTime() {
+	    this.remainingTime = this.endTime - Date.now();
+	    return this.remainingTime;
+	  }
+
+	  playSoundIfNearInterval(currentTime, sound, ...intervals) {
+	    intervals.forEach(function (interval) {
+	      if (currentTime.remainingTime < interval + 1000 && currentTime.remainingTime > interval) {
+	        sound.play();
 	      }
-
-	      intervals.forEach(function (interval) {
-	        if (currentTime.remainingTime < interval + 1000 && currentTime.remainingTime > interval) {
-	          sound.play();
-	        }
-	      });
-	    }
-	  }]);
-
-	  return Timer;
-	}();
+	    });
+	  }
+	}
 
 	module.exports = Timer;
+
 
 /***/ },
 /* 2 */
@@ -10331,8 +10311,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/peterspringer/front_end/mod_2/pomodoro-app/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/peterspringer/front_end/mod_2/pomodoro-app/node_modules/mocha/mocha.css", function() {
-			var newContent = require("!!/Users/peterspringer/front_end/mod_2/pomodoro-app/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/peterspringer/front_end/mod_2/pomodoro-app/node_modules/mocha/mocha.css");
+		module.hot.accept("!!/Users/kirstenswanson/Desktop/Turing/module-2-projects/pomodoro-app/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/kirstenswanson/Desktop/Turing/module-2-projects/pomodoro-app/node_modules/mocha/mocha.css", function() {
+			var newContent = require("!!/Users/kirstenswanson/Desktop/Turing/module-2-projects/pomodoro-app/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/kirstenswanson/Desktop/Turing/module-2-projects/pomodoro-app/node_modules/mocha/mocha.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -10595,68 +10575,63 @@
 /* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
 	__webpack_require__(124);
+
 
 /***/ },
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	const assert = __webpack_require__(125).assert;
+	const Timer = __webpack_require__(1);
 
-	var assert = __webpack_require__(125).assert;
-	var Timer = __webpack_require__(1);
+	describe('Timer', function() {
 
-	describe('Timer', function () {
+	    beforeEach(function () {
+	      this.rightNow = Date.now();
+	      this.dateNow = Date.now;
+	      Date.now = () => this.rightNow;
+	    });
 
-	  beforeEach(function () {
-	    var _this = this;
+	    afterEach(function () {
+	      Date.now = this.dateNow;
+	    });
 
-	    this.rightNow = Date.now();
-	    this.dateNow = Date.now;
-	    Date.now = function () {
-	      return _this.rightNow;
-	    };
-	  });
+	  it('should have a start time equal to date.now', function() {
+	     var timer = new Timer();
+	     assert.equal(timer.startTime, this.rightNow);
+	     assert.equal(timer.startTime, Date.now());
+	   });
 
-	  afterEach(function () {
-	    Date.now = this.dateNow;
-	  });
-
-	  it('should have a start time equal to date.now', function () {
-	    var timer = new Timer();
-	    assert.equal(timer.startTime, this.rightNow);
-	    assert.equal(timer.startTime, Date.now());
-	  });
-
-	  it('should have a default duration time of 1500000 milliseconds/25 minutes', function () {
+	  it('should have a default duration time of 1500000 milliseconds/25 minutes', function() {
 	    var timer = new Timer();
 	    assert.equal(timer.duration, 1500000);
 	  });
 
-	  it('should have an end time equal to start time plus duration', function () {
+	  it('should have an end time equal to start time plus duration', function() {
 	    var timer = new Timer();
 	    timer.timerEndTime();
 	    assert.equal(timer.endTime, this.rightNow + timer.duration);
 	  });
 
-	  it('should have a remaining time equal to end time minus date.now', function () {
+	  it('should have a remaining time equal to end time minus date.now', function() {
 	    var timer = new Timer();
 	    timer.timerRemainingTime();
 	    assert.equal(timer.remainingTime, timer.endTime - this.rightNow);
 	  });
 
-	  it('should have a default remaining time of 30000/30 seconds', function () {
+	  it('should have a default remaining time of 30000/30 seconds', function() {
 	    var timer = new Timer();
 	    assert.equal(timer.remainingTime, 30000);
 	  });
 
-	  it('should be able to take in a default time', function () {
+	  it('should be able to take in a default time', function() {
 	    var timer = new Timer(5);
 	    assert.equal(timer.duration, 300000);
 	  });
 	});
+
 
 /***/ },
 /* 125 */
