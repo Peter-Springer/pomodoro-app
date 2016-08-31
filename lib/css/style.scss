@@ -28,7 +28,7 @@ header {
 #start-button {
   @include desktop-functionality-buttons;
   margin-right: 1em;
-  &:hover {
+  &:hover:enabled {
     @include button-hover;
   }
   &:disabled {
@@ -78,7 +78,7 @@ header {
 
 .decrease-session-time, .increase-session-time, .decrease-break-time, .increase-break-time {
   @include desktop-increase-decrease-buttons;
-  &:hover {
+  &:hover:enabled {
     @include button-hover;
   }
   &:disabled {
