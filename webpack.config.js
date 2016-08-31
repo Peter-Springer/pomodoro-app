@@ -18,7 +18,7 @@ module.exports = {
           loader: 'url-loader',
           query: { mimetype: 'image/png'}
       },
-    //  { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015' }
+     { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015' }
     ]
   },
   resolve: {
